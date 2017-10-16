@@ -14,12 +14,12 @@ class ArrayMergeTests: QuickSpec {
             }
             
             it("delete element") {
-                let b = applyPatch(base: a, patch: [.Deletion(0), .Deletion(2)])
+                let b = applyPatch(base: a, patch: [.deletion(0), .deletion(2)])
                 XCTAssertEqual(b, ["b"])
             }
             
             it("inserts element") {
-                let b = applyPatch(base: a, patch: [.Insertion(0, "x"), .Insertion(3, "d"), .Insertion(3, "e")])
+                let b = applyPatch(base: a, patch: [.insertion(0, "x"), .insertion(3, "d"), .insertion(3, "e")])
                 XCTAssertEqual(b, ["x", "a", "b", "c", "d", "e"])
             }
         }

@@ -1,5 +1,5 @@
 PODS:
-  - Quick (0.8.0)
+  - Quick (1.2.0)
   - XcodeTestNavigatorFix (0.1.0)
 
 DEPENDENCIES:
@@ -7,7 +7,9 @@ DEPENDENCIES:
   - XcodeTestNavigatorFix
 
 SPEC CHECKSUMS:
-  Quick: 563d0f6ec5f72e394645adb377708639b7dd38ab
+  Quick: 58d203b1c5e27fff7229c4c1ae445ad7069a7a08
   XcodeTestNavigatorFix: da25bbc08dc4df0e98030b02375a5dc2e9947052
 
-COCOAPODS: 0.39.0
+PODFILE CHECKSUM: c060b6f77d5940173a9db98dd11640f70c4ccf71
+
+COCOAPODS: 1.3.1

@@ -6,11 +6,11 @@ struct DiffExample<T: Equatable> {
     let original: [T]
     let new: [T]
     let diff: [ArrayDiff<T>]
-    let file: String
+    let file: StaticString
     let line: UInt
 }
 
-func diffExample<T: Equatable>(original original: [T], new: [T], diff: [ArrayDiff<T>], file: String = __FILE__, line: UInt = __LINE__) -> DiffExample<T> {
+func diffExample<T>(original: [T], new: [T], diff: [ArrayDiff<T>], file: StaticString = #file, line: UInt = #line) -> DiffExample<T> {
     return DiffExample<T>(original: original, new: new, diff: diff, file: file, line: line)
 }
 
@@ -30,18 +30,18 @@ class DiffTest: QuickSpec {
         describe("Diff") {
             let examples = [
                 diffExample(original: ["1","2","3"], new: ["1","2","3"], diff: []),
-                diffExample(original: ["1","2","3"], new: ["1","2"], diff: [.Deletion(2)]),
-                diffExample(original: ["1","2","3"], new: ["1","2","3","4"], diff: [.Insertion(3, "4")]),
-                diffExample(original: ["1","2"], new: ["0","2"], diff: [.Deletion(0), .Insertion(1, "0")]),
-                diffExample(original: ["1","2","3"], new: ["2","1","3"], diff: [.Deletion(0), .Insertion(2, "1")]),
-                diffExample(original: ["1","2","3"], new: ["2","3","4","5"], diff: [.Deletion(0), .Insertion(3, "4"), .Insertion(3, "5")])
+                diffExample(original: ["1","2","3"], new: ["1","2"], diff: [.deletion(2)]),
+                diffExample(original: ["1","2","3"], new: ["1","2","3","4"], diff: [.insertion(3, "4")]),
+                diffExample(original: ["1","2"], new: ["0","2"], diff: [.deletion(0), .insertion(1, "0")]),
+                diffExample(original: ["1","2","3"], new: ["2","1","3"], diff: [.deletion(0), .insertion(2, "1")]),
+                diffExample(original: ["1","2","3"], new: ["2","3","4","5"], diff: [.deletion(0), .insertion(3, "4"), .insertion(3, "5")])
             ]
             
             it("calculates diff") {
                 let diff = Diff()
                 
                 examples.forEach { example in
-                    let d = diff.diff(example.original, new: example.new)
+                    let d = diff.diff(original: example.original, new: example.new)
                     XCTAssertEqual(d, example.diff, file: example.file, line: example.line)
                     XCTAssertEqual(example.new, applyPatch(base: example.original, patch: example.diff))
                 }

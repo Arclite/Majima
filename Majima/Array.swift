@@ -1,14 +1,14 @@
 import Foundation
 
 enum ArrayDiff<T: Equatable>: Equatable {
-    case Insertion(Int, T)
-    case Deletion(Int)
+    case insertion(Int, T)
+    case deletion(Int)
     
     var position: Double {
         switch self {
-        case .Deletion(let i):
+        case .deletion(let i):
             return Double(i)
-        case .Insertion(let j, _):
+        case .insertion(let j, _):
             return Double(j) - 0.5
         }
     }
@@ -16,9 +16,9 @@ enum ArrayDiff<T: Equatable>: Equatable {
 
 func ==<T>(d: ArrayDiff<T>, e: ArrayDiff<T>) -> Bool {
     switch (d, e) {
-    case (.Insertion(let p1, let r1), .Insertion(let p2, let r2)):
+    case (.insertion(let p1, let r1), .insertion(let p2, let r2)):
         return p1 == p2 && r1 == r2
-    case (.Deletion(let r1), .Deletion(let r2)):
+    case (.deletion(let r1), .deletion(let r2)):
         return r1 == r2
     default:
         return false
@@ -66,13 +66,13 @@ class Graph<T: Equatable> {
             candidates.append(path)
         } else {
             if let _ = self.cost(from: start, to: (x: start.x + 1, y: start.y)) {
-                self.enumeratePath(path + [.Deletion(start.x)], start: (x: start.x + 1, y: start.y), candidates: &candidates)
+                self.enumeratePath(path + [.deletion(start.x)], start: (x: start.x + 1, y: start.y), candidates: &candidates)
             }
             if let _ = self.cost(from: start, to: (x: start.x + 1, y: start.y + 1)) {
                 self.enumeratePath(path, start: (x: start.x + 1, y: start.y + 1), candidates: &candidates)
             }
             if let _ = self.cost(from: start, to: (x: start.x, y: start.y + 1)) {
-                self.enumeratePath(path + [.Insertion(start.x, self.new[start.y])], start: (x: start.x, y: start.y + 1), candidates: &candidates)
+                self.enumeratePath(path + [.insertion(start.x, self.new[start.y])], start: (x: start.x, y: start.y + 1), candidates: &candidates)
             }
         }
     }
@@ -94,9 +94,9 @@ extension ThreeWayMerge {
         var array = base
         
         switch diff {
-        case .Deletion(let i):
+        case .deletion(let i):
             array.remove(at: i)
-        case .Insertion(let i, let x):
+        case .insertion(let i, let x):
             array.insert(x, at: i)
         }
         
@@ -130,10 +130,10 @@ extension ThreeWayMerge {
                 result = self.apply(base: result, diff: d)
                 theirDiff.removeFirst()
             default:
-                return .Conflicted
+                return .conflicted
             }
         } while myDiff.count > 0 || theirDiff.count > 0
         
-        return .Merged(result)
+        return .merged(result)
     }
 }

@@ -17,7 +17,7 @@
 		ABD1A35B1C22FD8500250FB3 /* Merge.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABD1A35A1C22FD8500250FB3 /* Merge.swift */; };
 		ABD1A35D1C22FF4700250FB3 /* ScalarMergeTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABD1A35C1C22FF4700250FB3 /* ScalarMergeTests.swift */; };
 		ABD1A35F1C2303C200250FB3 /* DictionaryMergeTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABD1A35E1C2303C200250FB3 /* DictionaryMergeTests.swift */; };
-		AE0BCBE1228EB165E90E48E3 /* Pods_MajimaTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 60113B22BBBFDEFF5318E881 /* Pods_MajimaTests.framework */; };
+		E38C3EF597FF0CD766E45A58 /* Pods_MajimaTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1FE02760FD064B2CFCCCB397 /* Pods_MajimaTests.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -31,9 +31,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		47DDBB2F7C7B8FEF3FE64C94 /* Pods-MajimaTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MajimaTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-MajimaTests/Pods-MajimaTests.debug.xcconfig"; sourceTree = "<group>"; };
-		60113B22BBBFDEFF5318E881 /* Pods_MajimaTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MajimaTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		720AEBC1ED20738F599DFA1F /* Pods-MajimaTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MajimaTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-MajimaTests/Pods-MajimaTests.release.xcconfig"; sourceTree = "<group>"; };
+		1FE02760FD064B2CFCCCB397 /* Pods_MajimaTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MajimaTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		AB4D8EAD1C337B0000376B06 /* Array.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Array.swift; sourceTree = "<group>"; };
 		AB4D8EAF1C33AF7700376B06 /* Dictionary.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Dictionary.swift; sourceTree = "<group>"; };
 		AB4D8EB11C33D6CF00376B06 /* TestHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TestHelper.swift; sourceTree = "<group>"; };
@@ -47,6 +45,8 @@
 		ABD1A35A1C22FD8500250FB3 /* Merge.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Merge.swift; sourceTree = "<group>"; };
 		ABD1A35C1C22FF4700250FB3 /* ScalarMergeTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScalarMergeTests.swift; sourceTree = "<group>"; };
 		ABD1A35E1C2303C200250FB3 /* DictionaryMergeTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DictionaryMergeTests.swift; sourceTree = "<group>"; };
+		D2654D53928532CAD0849560 /* Pods-MajimaTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MajimaTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-MajimaTests/Pods-MajimaTests.debug.xcconfig"; sourceTree = "<group>"; };
+		FD3E202D93F525AD006619FE /* Pods-MajimaTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MajimaTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-MajimaTests/Pods-MajimaTests.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -62,21 +62,29 @@
 			buildActionMask = 2147483647;
 			files = (
 				ABC153F11C22FD0A0086A00E /* Majima.framework in Frameworks */,
-				AE0BCBE1228EB165E90E48E3 /* Pods_MajimaTests.framework in Frameworks */,
+				E38C3EF597FF0CD766E45A58 /* Pods_MajimaTests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		40E4CD3381C347AB14CEE560 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				1FE02760FD064B2CFCCCB397 /* Pods_MajimaTests.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		ABC153DC1C22FD0A0086A00E = {
 			isa = PBXGroup;
 			children = (
 				ABC153E81C22FD0A0086A00E /* Majima */,
 				ABC153F41C22FD0A0086A00E /* MajimaTests */,
 				ABC153E71C22FD0A0086A00E /* Products */,
-				FB81285C31778722CB706738 /* Pods */,
-				B42B8961799FD9CDB1F56585 /* Frameworks */,
+				D6AB3A43FF3B485EF92D89BD /* Pods */,
+				40E4CD3381C347AB14CEE560 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -114,19 +122,11 @@
 			path = MajimaTests;
 			sourceTree = "<group>";
 		};
-		B42B8961799FD9CDB1F56585 /* Frameworks */ = {
+		D6AB3A43FF3B485EF92D89BD /* Pods */ = {
 			isa = PBXGroup;
 			children = (
-				60113B22BBBFDEFF5318E881 /* Pods_MajimaTests.framework */,
-			);
-			name = Frameworks;
-			sourceTree = "<group>";
-		};
-		FB81285C31778722CB706738 /* Pods */ = {
-			isa = PBXGroup;
-			children = (
-				47DDBB2F7C7B8FEF3FE64C94 /* Pods-MajimaTests.debug.xcconfig */,
-				720AEBC1ED20738F599DFA1F /* Pods-MajimaTests.release.xcconfig */,
+				D2654D53928532CAD0849560 /* Pods-MajimaTests.debug.xcconfig */,
+				FD3E202D93F525AD006619FE /* Pods-MajimaTests.release.xcconfig */,
 			);
 			name = Pods;
 			sourceTree = "<group>";
@@ -167,12 +167,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = ABC153FD1C22FD0A0086A00E /* Build configuration list for PBXNativeTarget "MajimaTests" */;
 			buildPhases = (
-				04874AA748301C0D01A5C4F7 /* Check Pods Manifest.lock */,
+				2FCF58AE610F37B11F9916A1 /* [CP] Check Pods Manifest.lock */,
 				ABC153EC1C22FD0A0086A00E /* Sources */,
 				ABC153ED1C22FD0A0086A00E /* Frameworks */,
 				ABC153EE1C22FD0A0086A00E /* Resources */,
-				FC574EC381AB1D0DBFA1CDD2 /* Embed Pods Frameworks */,
-				BFA8780D694000E94036CD05 /* Copy Pods Resources */,
+				4B366CEEA6F11F2D69A08661 /* [CP] Embed Pods Frameworks */,
+				637E0A6333CFE1AFAD88FE62 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -238,49 +238,57 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		04874AA748301C0D01A5C4F7 /* Check Pods Manifest.lock */ = {
+		2FCF58AE610F37B11F9916A1 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
 			);
-			name = "Check Pods Manifest.lock";
+			name = "[CP] Check Pods Manifest.lock";
 			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-MajimaTests-checkManifestLockResult.txt",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
-		BFA8780D694000E94036CD05 /* Copy Pods Resources */ = {
+		4B366CEEA6F11F2D69A08661 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-MajimaTests/Pods-MajimaTests-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/Quick/Quick.framework",
+				"${BUILT_PRODUCTS_DIR}/XcodeTestNavigatorFix/XcodeTestNavigatorFix.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Quick.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/XcodeTestNavigatorFix.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-MajimaTests/Pods-MajimaTests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		637E0A6333CFE1AFAD88FE62 /* [CP] Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
-			name = "Copy Pods Resources";
+			name = "[CP] Copy Pods Resources";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-MajimaTests/Pods-MajimaTests-resources.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		FC574EC381AB1D0DBFA1CDD2 /* Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "Embed Pods Frameworks";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-MajimaTests/Pods-MajimaTests-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
@@ -466,7 +474,7 @@
 		};
 		ABC153FE1C22FD0A0086A00E /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 47DDBB2F7C7B8FEF3FE64C94 /* Pods-MajimaTests.debug.xcconfig */;
+			baseConfigurationReference = D2654D53928532CAD0849560 /* Pods-MajimaTests.debug.xcconfig */;
 			buildSettings = {
 				INFOPLIST_FILE = MajimaTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
@@ -477,7 +485,7 @@
 		};
 		ABC153FF1C22FD0A0086A00E /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 720AEBC1ED20738F599DFA1F /* Pods-MajimaTests.release.xcconfig */;
+			baseConfigurationReference = FD3E202D93F525AD006619FE /* Pods-MajimaTests.release.xcconfig */;
 			buildSettings = {
 				INFOPLIST_FILE = MajimaTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";

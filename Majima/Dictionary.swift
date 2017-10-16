@@ -15,13 +15,13 @@ extension ThreeWayMerge {
             let t = theirs[key]
             
             switch self.merge(base: b, mine: m, theirs: t) {
-            case .Merged(let x):
+            case .merged(let x):
                 object[key] = x
-            case .Conflicted:
-                return .Conflicted
+            case .conflicted:
+                return .conflicted
             }
         }
         
-        return .Merged(object)
+        return .merged(object)
     }
 }

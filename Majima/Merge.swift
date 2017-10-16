@@ -1,40 +1,40 @@
 import Foundation
 
 public enum Result<T> {
-    case Merged(T)
-    case Conflicted
+    case merged(T)
+    case conflicted
 }
 
 public class ThreeWayMerge {
     public static func merge<T: Equatable>(base: T, mine: T, theirs: T) -> Result<T> {
         if (theirs == mine) {
-            return .Merged(theirs)
+            return .merged(theirs)
         }
         
         if (base == mine) {
-            return .Merged(theirs)
+            return .merged(theirs)
         }
         
         if (base == theirs) {
-            return .Merged(mine)
+            return .merged(mine)
         }
         
-        return .Conflicted
+        return .conflicted
     }
     
     public static func merge<T: Equatable>(base: T?, mine: T?, theirs: T?) -> Result<T?> {
         if theirs == mine {
-            return .Merged(theirs)
+            return .merged(theirs)
         }
         
         if (base == mine) {
-            return .Merged(theirs)
+            return .merged(theirs)
         }
         
         if (base == theirs) {
-            return .Merged(mine)
+            return .merged(mine)
         }
         
-        return .Conflicted
+        return .conflicted
     }
 }
