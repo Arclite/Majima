@@ -103,14 +103,14 @@ extension ThreeWayMerge {
         return array
     }
     
-    static public func merge<T: Equatable>(base: [T], mine: [T], theirs: [T]) -> Result<[T]> {
+    static public func merge<T: Equatable>(base: [T], mine: [T], theirs: [T], includeConflicts: Bool = false) -> Result<[T]> {
         let diff = Diff()
-        
+
         var myDiff: [ArrayDiff<T>] = diff.diff(original: base, new: mine).reversed()
         var theirDiff: [ArrayDiff<T>] = diff.diff(original: base, new: theirs).reversed()
-        
+
         var result: [T] = base
-        
+
         repeat {
             switch (myDiff.first, theirDiff.first) {
             case (.some(let d), .some(let e)) where d.position < e.position:
@@ -123,6 +123,15 @@ extension ThreeWayMerge {
                 result = self.apply(base: result, diff: d)
                 myDiff.removeFirst()
                 theirDiff.removeFirst()
+            case (.some(let d), .some(let e)) where d != e:
+                if includeConflicts {
+                    result = self.apply(base: result, diff: d)
+                    result = self.apply(base: result, diff: e)
+                    myDiff.removeFirst()
+                    theirDiff.removeFirst()
+                } else {
+                    return .conflicted
+                }
             case (.some(let d), .none):
                 result = self.apply(base: result, diff: d)
                 myDiff.removeFirst()
@@ -133,7 +142,7 @@ extension ThreeWayMerge {
                 return .conflicted
             }
         } while myDiff.count > 0 || theirDiff.count > 0
-        
+
         return .merged(result)
     }
 }
