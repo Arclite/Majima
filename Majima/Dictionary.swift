@@ -1,7 +1,7 @@
 import Foundation
 
 extension ThreeWayMerge {
-    public static func merge<K, V: Equatable>(base base: [K: V], mine: [K: V], theirs: [K: V]) -> Result<[K: V]> {
+    public static func merge<K, V: Equatable>(base: [K: V], mine: [K: V], theirs: [K: V]) -> Result<[K: V]> {
         var all_keys: Set<K> = Set()
         all_keys = all_keys.union(base.keys)
         all_keys = all_keys.union(mine.keys)

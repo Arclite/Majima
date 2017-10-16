@@ -14,7 +14,7 @@ enum ArrayDiff<T: Equatable>: Equatable {
     }
 }
 
-func ==<T: Equatable>(d: ArrayDiff<T>, e: ArrayDiff<T>) -> Bool {
+func ==<T>(d: ArrayDiff<T>, e: ArrayDiff<T>) -> Bool {
     switch (d, e) {
     case (.Insertion(let p1, let r1), .Insertion(let p2, let r2)):
         return p1 == p2 && r1 == r2
@@ -41,27 +41,27 @@ class Graph<T: Equatable> {
      - 0 <= x <= original.count should hold
      - 0 <= y <= new.count should hold
      */
-    func cost(from from: (x: Int, y: Int), to: (x: Int, y: Int)) -> UInt? {
+    func cost(from: (x: Int, y: Int), to: (x: Int, y: Int)) -> UInt? {
         guard 0 <= from.x && to.x <= self.original.count && 0 <= from.y && to.y <= self.new.count else {
-            return .None
+            return .none
         }
         
         guard to.x == from.x + 1 || to.y == from.y + 1 else {
-            return .None
+            return .none
         }
         
         if to.x == from.x + 1 && to.y == from.y + 1 {
             if self.original[to.x - 1] == self.new[to.y - 1] {
                 return 0
             } else {
-                return .None
+                return .none
             }
         } else {
             return 1
         }
     }
     
-    func enumeratePath(path: [ArrayDiff<T>], start: (x: Int, y: Int), inout candidates: [[ArrayDiff<T>]]) {
+    func enumeratePath(_ path: [ArrayDiff<T>], start: (x: Int, y: Int), candidates: inout [[ArrayDiff<T>]]) {
         if start.x == self.original.count && start.y == self.new.count {
             candidates.append(path)
         } else {
@@ -85,48 +85,48 @@ class Diff {
         let graph = Graph<T>(original: original, new: new)
         graph.enumeratePath([], start: (x: 0, y: 0), candidates: &paths)
         
-        return paths.minElement { $0.count < $1.count }!
+        return paths.min { $0.count < $1.count }!
     }
 }
 
 extension ThreeWayMerge {
-    static func apply<T: Equatable>(base base: [T], diff: ArrayDiff<T>) -> [T] {
+    static func apply<T>(base: [T], diff: ArrayDiff<T>) -> [T] {
         var array = base
         
         switch diff {
         case .Deletion(let i):
-            array.removeAtIndex(i)
+            array.remove(at: i)
         case .Insertion(let i, let x):
-            array.insert(x, atIndex: i)
+            array.insert(x, at: i)
         }
         
         return array
     }
     
-    static public func merge<T: Equatable>(base base: [T], mine: [T], theirs: [T]) -> Result<[T]> {
+    static public func merge<T: Equatable>(base: [T], mine: [T], theirs: [T]) -> Result<[T]> {
         let diff = Diff()
         
-        var myDiff: [ArrayDiff<T>] = diff.diff(base, new: mine).reverse()
-        var theirDiff: [ArrayDiff<T>] = diff.diff(base, new: theirs).reverse()
+        var myDiff: [ArrayDiff<T>] = diff.diff(original: base, new: mine).reversed()
+        var theirDiff: [ArrayDiff<T>] = diff.diff(original: base, new: theirs).reversed()
         
         var result: [T] = base
         
         repeat {
             switch (myDiff.first, theirDiff.first) {
-            case (.Some(let d), .Some(let e)) where d.position < e.position:
+            case (.some(let d), .some(let e)) where d.position < e.position:
                 result = self.apply(base: result, diff: e)
                 theirDiff.removeFirst()
-            case (.Some(let d), .Some(let e)) where d.position > e.position:
+            case (.some(let d), .some(let e)) where d.position > e.position:
                 result = self.apply(base: result, diff: d)
                 myDiff.removeFirst()
-            case (.Some(let d), .Some(let e)) where d == e:
+            case (.some(let d), .some(let e)) where d == e:
                 result = self.apply(base: result, diff: d)
                 myDiff.removeFirst()
                 theirDiff.removeFirst()
-            case (.Some(let d), .None):
+            case (.some(let d), .none):
                 result = self.apply(base: result, diff: d)
                 myDiff.removeFirst()
-            case (.None, .Some(let d)):
+            case (.none, .some(let d)):
                 result = self.apply(base: result, diff: d)
                 theirDiff.removeFirst()
             default:

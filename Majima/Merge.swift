@@ -6,7 +6,7 @@ public enum Result<T> {
 }
 
 public class ThreeWayMerge {
-    public static func merge<T: Equatable>(base base: T, mine: T, theirs: T) -> Result<T> {
+    public static func merge<T: Equatable>(base: T, mine: T, theirs: T) -> Result<T> {
         if (theirs == mine) {
             return .Merged(theirs)
         }
@@ -22,7 +22,7 @@ public class ThreeWayMerge {
         return .Conflicted
     }
     
-    public static func merge<T: Equatable>(base base: T?, mine: T?, theirs: T?) -> Result<T?> {
+    public static func merge<T: Equatable>(base: T?, mine: T?, theirs: T?) -> Result<T?> {
         if theirs == mine {
             return .Merged(theirs)
         }
