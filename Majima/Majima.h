@@ -6,7 +6,7 @@
 //  Copyright © 2015年 松本宗太郎. All rights reserved.
 //
 
-#import <UIKit/UIKit.h>
+#import <Foundation/Foundation.h>
 
 //! Project version number for Majima.
 FOUNDATION_EXPORT double MajimaVersionNumber;
