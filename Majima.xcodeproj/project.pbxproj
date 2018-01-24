@@ -31,6 +31,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		0419F14320184838005FD2D3 /* UniversalFramework_Base.xcconfig */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xcconfig; path = UniversalFramework_Base.xcconfig; sourceTree = "<group>"; };
+		0419F14420184838005FD2D3 /* UniversalFramework_Framework.xcconfig */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xcconfig; path = UniversalFramework_Framework.xcconfig; sourceTree = "<group>"; };
+		0419F14720184865005FD2D3 /* UniversalFramework_Test.xcconfig */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xcconfig; path = UniversalFramework_Test.xcconfig; sourceTree = "<group>"; };
 		1FE02760FD064B2CFCCCB397 /* Pods_MajimaTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MajimaTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		AB4D8EAD1C337B0000376B06 /* Array.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Array.swift; sourceTree = "<group>"; };
 		AB4D8EAF1C33AF7700376B06 /* Dictionary.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Dictionary.swift; sourceTree = "<group>"; };
@@ -105,6 +108,8 @@
 				AB4D8EAD1C337B0000376B06 /* Array.swift */,
 				AB4D8EAF1C33AF7700376B06 /* Dictionary.swift */,
 				ABD1A35A1C22FD8500250FB3 /* Merge.swift */,
+				0419F14320184838005FD2D3 /* UniversalFramework_Base.xcconfig */,
+				0419F14420184838005FD2D3 /* UniversalFramework_Framework.xcconfig */,
 			);
 			path = Majima;
 			sourceTree = "<group>";
@@ -112,6 +117,7 @@
 		ABC153F41C22FD0A0086A00E /* MajimaTests */ = {
 			isa = PBXGroup;
 			children = (
+				0419F14720184865005FD2D3 /* UniversalFramework_Test.xcconfig */,
 				ABC153F71C22FD0A0086A00E /* Info.plist */,
 				AB6D0BCB1C243F1F001AFB16 /* ArrayMergeTests.swift */,
 				ABD1A35E1C2303C200250FB3 /* DictionaryMergeTests.swift */,
@@ -437,6 +443,7 @@
 		};
 		ABC153FB1C22FD0A0086A00E /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 0419F14420184838005FD2D3 /* UniversalFramework_Framework.xcconfig */;
 			buildSettings = {
 				CLANG_ENABLE_MODULES = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
